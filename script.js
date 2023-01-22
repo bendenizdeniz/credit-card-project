@@ -1,12 +1,20 @@
 const expirationSelect = document.querySelector("[data-expiration-year]");
 const logo = document.querySelector("[data-logo]");
 const currentYear = new Date().getFullYear();
+const monthSelect = document.getElementById("expiration-month");
 
 for (let i = currentYear; i < currentYear + 10; i++) {
     const option = document.createElement("option");
     option.value = i;
     option.innerText = i;
     expirationSelect.append(option);
+}
+
+for (let i = 1; i <= 12; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.innerText = i < 10 ? `0${i}` : i;
+    monthSelect.append(option);
 }
 
 const isConnectedInput = (input) => {
